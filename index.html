@@ -17,6 +17,29 @@
     <div class="container">
       <div class="card">
         <div class="card-body">
+          <form id="searchForm">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="search"
+                  class="form-control"
+                  id="inputCity"
+                  placeholder="Type a city ..."
+                  autofocus
+                />
+              </div>
+              <div class="col-6">
+                <button
+                  type="submit"
+                  class="btn btn-primary w-40"
+                  id="searchButton"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+
           <h1 id="city"></h1>
           <ul class="firstInfo">
             <li id="date"></li>

@@ -62,3 +62,13 @@ ul li {
 a {
   text-decoration: none;
 }
+
+#searchForm {
+  margin: 20px;
+  margin-left: 0;
+  width: 1000px;
+}
+
+#searchButton {
+  width: 100px;
+}
