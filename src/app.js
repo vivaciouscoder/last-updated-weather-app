@@ -1,5 +1,5 @@
-function formatDate() {
-  let date = new Date();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -44,7 +44,8 @@ function showTemp(response) {
     response.data.wind.speed
   );
 
-  document.querySelector("#date").innerHTML = formatDate();
+  let updatedDate = document.querySelector("#date");
+  updatedDate.innerHTML = formatDate(1000 * response.data.time);
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
@@ -55,7 +56,7 @@ function showTemp(response) {
 }
 
 let apiKey = "91t8a4380fe47251638a138b7fbod1f7";
-let city = "istanbul";
+let city = "berlin";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(showTemp);
