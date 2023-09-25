@@ -45,6 +45,13 @@ function showTemp(response) {
   );
 
   document.querySelector("#date").innerHTML = formatDate();
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
 
 let apiKey = "91t8a4380fe47251638a138b7fbod1f7";
