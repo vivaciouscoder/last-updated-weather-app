@@ -47,7 +47,7 @@ function showTemp(response) {
   );
 
   let updatedDate = document.querySelector("#date");
-  updatedDate.innerHTML = formatDate(response.data.time * 1000.0004);
+  updatedDate.innerHTML = formatDate(response.data.time * 1000);
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
