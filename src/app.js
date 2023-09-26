@@ -24,9 +24,11 @@ function formatDate(timestamp) {
 
 function showTemp(response) {
   console.log(response);
-  document.querySelector(".temperature").innerHTML = Math.round(
-    response.data.temperature.current
-  );
+
+  celciousTemp = response.data.temperature.current;
+
+  let temperature = document.querySelector(".temperature");
+  temperature.innerHTML = Math.round(celciousTemp);
   document.querySelector("#city").innerHTML = response.data.city;
 
   document.querySelector("#description").innerHTML =
@@ -66,7 +68,37 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#inputCity");
   search(cityInputElement.value);
 }
-search("Istanbul");
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+
+  let fahrenheitTemp = (celciousTemp * 9) / 5 + 32;
+  let temperatureElement = document.querySelector(".temperature");
+
+  fahrenheitLink.classList.add("active");
+  celciousLink.classList.remove("active");
+
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function displayCelcious(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".temperature");
+  temperatureElement.innerHTML = Math.round(celciousTemp);
+
+  celciousLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+}
+
+let celciousTemp = null;
 
 let form = document.querySelector("#searchForm");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celciousLink = document.querySelector("#celcious-link");
+celciousLink.addEventListener("click", displayCelcious);
+
+search("Istanbul");

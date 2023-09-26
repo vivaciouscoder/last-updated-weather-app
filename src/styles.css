@@ -55,10 +55,7 @@ ul li {
   left: 0px;
   color: rgb(46, 46, 46);
 }
-.units a {
-  color: rgb(38, 38, 38);
-  text-decoration: none;
-}
+
 a {
   text-decoration: none;
 }
@@ -71,4 +68,9 @@ a {
 
 #searchButton {
   width: 100px;
+}
+
+.active {
+  cursor: default;
+  color: black;
 }
