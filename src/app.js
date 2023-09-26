@@ -23,6 +23,7 @@ function formatDate(timestamp) {
 }
 
 function showTemp(response) {
+  console.log(response);
   document.querySelector(".temperature").innerHTML = Math.round(
     response.data.temperature.current
   );
@@ -44,7 +45,7 @@ function showTemp(response) {
   );
 
   let updatedDate = document.querySelector("#date");
-  updatedDate.innerHTML = formatDate(1000 * response.data.time);
+  updatedDate.innerHTML = formatDate(response.data.time * 1000.0004);
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
