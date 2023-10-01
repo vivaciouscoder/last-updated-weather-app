@@ -76,25 +76,25 @@ a {
   color: black;
 }
 
-.weather-forcast {
+.weather-forecast {
   text-align: center;
   margin-top: -5px;
   padding-bottom: 25px;
 }
 
-.weather-forcast-date {
+.weather-forecast-date {
   font-size: 16px;
 }
 
-.weather-forcast-temp {
+.weather-forecast-temp {
   font-size: 12px;
   color: black;
 }
 
-.weather-forcast-temp-max {
+.weather-forecast-temp-max {
   opacity: 0.8;
 }
 
-.weather-forcast-temp-min {
+.weather-forecast-temp-min {
   opacity: 0.5;
 }
