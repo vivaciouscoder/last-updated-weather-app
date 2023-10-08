@@ -22,6 +22,13 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "91t8a4380fe47251638a138b7fbod1f7";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemp(response) {
   console.log(response);
 
@@ -55,6 +62,8 @@ function showTemp(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coordinates);
 }
 
 function search(city) {
@@ -90,7 +99,8 @@ function displayCelcious(event) {
   fahrenheitLink.classList.remove("active");
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["mon", "tue", "wed", "thu", "fri", "sat"];
@@ -129,4 +139,3 @@ let celciousLink = document.querySelector("#celcious-link");
 celciousLink.addEventListener("click", displayCelcious);
 
 search("Istanbul");
-displayForecast();
