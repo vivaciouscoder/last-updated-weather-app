@@ -121,6 +121,15 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function displayCurrentLocation(position) {
+  let apiKey = "91t8a4380fe47251638a138b7fbod1f7";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}`;
+
+  axios.get(apiUrl).then(showTemp);
+}
+
+navigator.geolocation.getCurrentPosition(displayCurrentLocation);
+
 let celciousTemp = null;
 
 let form = document.querySelector("#searchForm");
